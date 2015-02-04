@@ -1534,6 +1534,11 @@
       $$rsvp$asap$$len = 0;
     }
 
+    function $$rsvp$asap$$flushQueue () {
+      $$rsvp$asap$$queue = new Array(1000);
+      $$rsvp$asap$$len = 0;
+    }
+
     var $$rsvp$asap$$scheduleFlush;
 
     // Decide what async method to use to triggering processing of queued callbacks:
@@ -1593,7 +1598,8 @@
       'defer': $$rsvp$defer$$default,
       'EventTarget': $$rsvp$events$$default,
       'configure': $$rsvp$config$$configure,
-      'async': $$rsvp$$async
+      'async': $$rsvp$$async,
+      'flushQueue': $$rsvp$asap$$flushQueue
     };
 
     /* global define:true module:true window: true */
